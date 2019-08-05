@@ -350,6 +350,22 @@ function noop(){}
 
 
 
+
+const youtubeRegExp = /^(?:https?:\/\/)?(?:m\.|www\.)?(?:youtu\.be\/|youtube\.com\/(?:embed\/|v\/|watch\?v=|watch\?.+&v=))((\w|-){11})(?:\S+)?$/;
+const vimeoRegExp = /(https?:\/\/)?(www.)?(player.)?vimeo.com\/([a-z]*\/)*([0-9]{6,11})[?]?.*/;
+
+function youtubeID(url){
+    if(!url) return;
+    let match = url.match(youtubeRegExp);
+    return match && match.length > 1? match[1] : undefined;
+}
+function vimeoID(url){
+    if(!url) return;
+    let match = url.match(vimeoRegExp);
+    return match && match.length > 1? match[5] : undefined;
+}
+
+
 module.exports = {
     findKey         : findKey,
     trim            : trim,
@@ -375,5 +391,7 @@ module.exports = {
     getQueryParams  : getQueryParams,
     parseRJSON      : parseRJSON,
     isFunction      : isFunction,
-    isObject        : isObject
+    isObject        : isObject,
+    youtubeID,
+    vimeoID
 };

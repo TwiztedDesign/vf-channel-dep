@@ -5,10 +5,11 @@
     <title>Basic VFC Test</title>
 
     <link rel="stylesheet" href="style.css">
+    <script src="basic.js"></script>
 
 
     <!-- -------- -->
-    <script src="../../dist//vfchannel.js"></script>
+    <script src="../../dist/vfchannel.js"></script>
     <script>
          (vfccnf = window.vfccnf || {
              env:'d',
@@ -18,13 +19,12 @@
     </script>
     <!-- -------- -->
 
-    <script src="basic.js"></script>
 </head>
 <body>
-    <div>
-        Hello
+    <div class="vf-channel-template basic">
+            <div class="ch-body" >
+                <vfchannel-poster></vfchannel-poster>
+            </div>
     </div>
-
-    <vfchannel-poster></vfchannel-poster>
 </body>
 </html>

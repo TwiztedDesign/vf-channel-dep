@@ -16,7 +16,8 @@
         ],
         "linebreak-style": [
             "error",
-            "unix"
+            "unix",
+            "off"
         ],
         "quotes": [
             "off",
@@ -25,9 +26,6 @@
         "semi": [
             "error",
             "always"
-        ],
-        "linebreak-style": [
-            "off"
         ]
     }
 }

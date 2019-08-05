@@ -1,6 +1,6 @@
 import VFChannelHTMLElmenet from "../vfChannelHTMLElement";
 
-export default class Poster extends VFChannelHTMLElmenet {
+export default class Content extends VFChannelHTMLElmenet {
     constructor(...args) {
         super(...args);
         this.poster = window.vfchannel.content.getPoster();
