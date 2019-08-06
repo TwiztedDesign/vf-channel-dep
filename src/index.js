@@ -1,18 +1,9 @@
-import "../scripts/custom-elements.min";
-import "../scripts/custom-elements-es5-adapter.exec";
-import {isMobile} from './utils/helpers';
-import {getContent} from './core/handlers/contentProvider';
-import {initVFChannelElements} from './core/vfChannelInitializer';
-import {READY} from './utils/events.js';
-
-
-window.addEventListener(READY,()=>{
-    initVFChannelElements();
-});
+import { isMobile } from './utils/helpers';
+import { loadContent } from './core/handlers/contentProvider';
 
 let vfChannel = {};
-vfChannel.isMobile            = isMobile;
-vfChannel.getContent          = (settings, cb) => {return getContent(settings, cb);};
-
+vfChannel.isMobile = isMobile;
+vfChannel.loadContent       = (settings, cb) => { return loadContent(settings, cb); };
+vfChannel.getContent        = () => { return window.vfChannel.content; };
 
 module.exports = vfChannel;

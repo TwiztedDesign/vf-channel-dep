@@ -3,7 +3,7 @@ import {env} from '../../utils/config';
 import {READY,UPDATE} from '../../utils/events.js';
 import VFChannelContent from '../models/vfChannelContent';
 
-function getContent(settings, cb){
+function loadContent(settings, cb){
     settings = settings || window.vfChannel.vfccnf;
     get(`${env[settings.env]}channel/${settings.channel_client}/json`,(res)=>{
         let isFirstInitialization = !window.vfChannel.content;
@@ -18,5 +18,5 @@ function getContent(settings, cb){
 }
 
 module.exports = {
-    getContent
+    loadContent
 };
