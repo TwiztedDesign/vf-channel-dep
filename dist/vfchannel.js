@@ -1141,7 +1141,13 @@ vfChannel.loadContent = function (settings, cb) {
   return (0, _contentProvider.loadContent)(settings, cb);
 };
 vfChannel.getContent = function () {
-  return window.vfChannel.content;
+  return window.vfChannel.content.getItems();
+};
+vfChannel.getPoster = function () {
+  return window.vfChannel.content.getPoster();
+};
+vfChannel.getChannel = function () {
+  return window.vfChannel.content.getChannel();
 };
 
 module.exports = vfChannel;
