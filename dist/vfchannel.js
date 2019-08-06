@@ -4,9 +4,9 @@
 	else if(typeof define === 'function' && define.amd)
 		define([], factory);
 	else if(typeof exports === 'object')
-		exports["vfchannel"] = factory();
+		exports["vfChannel"] = factory();
 	else
-		root["vfchannel"] = factory();
+		root["vfChannel"] = factory();
 })(typeof self !== 'undefined' ? self : this, function() {
 return /******/ (function(modules) { // webpackBootstrap
 /******/ 	// The module cache
@@ -2911,7 +2911,7 @@ var Items = function (_VFChannelHTMLElmenet) {
 
         var _this = (0, _possibleConstructorReturn3.default)(this, (_ref = Items.__proto__ || Object.getPrototypeOf(Items)).call.apply(_ref, [this].concat(args)));
 
-        _this.items = window.vfchannel.content.getItems();
+        _this.items = window.vfChannel.content.getItems();
         return _this;
     }
 

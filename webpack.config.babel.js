@@ -13,7 +13,7 @@ module.exports =  {
         filename        : "[name].js",
         path            : join(__dirname, 'dist'),
         libraryTarget   : 'umd',
-        library         : 'vfchannel'
+        library         : 'vfChannel'
     },
     devtool             : false,
     module              : {
