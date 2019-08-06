@@ -23,7 +23,7 @@ export default class Items extends VFChannelHTMLElmenet {
         return (
             `<div class="ch-galley" style:"${this.items.getBackgoundColor()}">
                 <div class="ch-gallery-items">
-                    ${this.items.getContent().map(() => {
+                    ${this.items.map(() => {
                         return this._buildContent();
                     })}
                 </div>

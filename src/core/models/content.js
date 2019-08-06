@@ -1,17 +1,16 @@
 class Content {
-    constructor(content, settings) {
-        this.content = content;
-        this.settings = settings;
+    constructor(content) {
+        Object.assign(this, content);
     }
 
     getName() {
-        return (this.content.settings && this.content.settings.display_name) ? this.content.settings.display_name : this.content.name;
+        return (this.settings && this.settings.display_name) ? this.settings.display_name : this.name;
     }
     getUrl() {
-        return this.content.url;
+        return this.url;
     }
     getThumbnail() {
-        return this.content.thumbnail;
+        return this.thumbnail;
     }
     getTextColor() {
         return this.settings.textColor;

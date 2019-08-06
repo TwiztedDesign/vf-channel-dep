@@ -3,35 +3,35 @@ import GROUP_SELECTED from '../../utils/events';
 
 class Channel {
     constructor(channel) {
-        this.channel = channel;
+        Object.assign(this, channel);
         //Set first selected group
     }
 
     getName() {
-        return this.channel.name;
+        return this.name;
     }
 
     getPosterSettings() {
-        return this.channel.settings.poster;
+        return this.settings.poster;
     }
 
     getContentSettings() {
-        return this.channel.settings.gallery;
+        return this.settings.gallery;
     }
 
 
     //------------Groups-----------//
     shouldShowGroups() {
-        return this.channel.settings.gallery.visibility;
+        return this.settings.gallery.visibility;
     }
     getTags() {
-        return this.channel.settings.gallery.group.tags;
+        return this.settings.gallery.group.tags;
     }
     getGroupBackgroundColor() {
-        return this.channel.settings.gallery.group.backgroundColor;
+        return this.settings.gallery.group.backgroundColor;
     }
     getGroupTextColor() {
-        return this.channel.settings.gallery.group.textColor;
+        return this.settings.gallery.group.textColor;
     }
     setSelectedGroup(group) {
         if (group && this.selectedGroup !== group) {

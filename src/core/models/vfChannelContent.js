@@ -1,5 +1,5 @@
 import Poster from './poster';
-import Items from './items';
+import Content from './content';
 import Channel from './channel';
 import {isObject} from '../../utils/helpers';
 
@@ -7,8 +7,10 @@ class VFChannelContent{
     constructor(data){
         data = isObject(data)? data : JSON.parse(data);
         this.channel = new Channel(data.channel);
-        this.items = new Items(data.content, this.channel.getContentSettings());
-        this.poster = new Poster(data.poster, this.channel.getPosterSettings());
+        this.items =  data.content.map(content => {
+            return new Content(content);
+        });
+        this.poster = new Poster(data.poster);
     }
 
     getPoster(){

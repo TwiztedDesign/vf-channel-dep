@@ -1,31 +1,30 @@
 class Poster {
-    constructor(poster, settings) {
-        this.poster = poster;
-        this.settings = settings;
+    constructor(poster) {
+         Object.assign(this,poster);
     }
     getName() {
-        return (this.poster.settings && this.poster.settings.display_name) ? this.poster.settings.display_name : this.poster.name;
+        return (this.settings && this.settings.display_name) ? this.settings.display_name : this.name;
     }
     getDescription() {
-        return this.poster.settings && this.poster.settings.description;
+        return this.settings && this.settings.description;
     }
     getUrl() {
-        return this.poster.url;
+        return this.url;
     }
     getThumbnail() {
-        return this.poster.thumbnail;
+        return this.thumbnail;
     }
     getTextColor() {
         return this.settings.textColor;
     }
     shouldShowPoster() {
-        return this.poster && this.settings.visibility;
+        return this.settings.visibility;
     }
     shouldShowTitle() {
-        return this.poster && this.getName() !== '' && this.settings.titleVisibility;
+        return this.getName() !== '' && this.settings.titleVisibility;
     }
     shouldShowDesciption() {
-        return this.poster && this.getDescription() !== '';
+        return this.getDescription() !== '';
     }
 }
 
