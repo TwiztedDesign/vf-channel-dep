@@ -1149,6 +1149,9 @@ vfChannel.getPoster = function () {
 vfChannel.getChannel = function () {
   return window.vfChannel.content.getChannel();
 };
+vfChannel.getSettings = function () {
+  return window.vfChannel.content.getChannel().getSettings();
+};
 
 module.exports = vfChannel;
 
@@ -2252,10 +2255,6 @@ var _createClass2 = __webpack_require__(15);
 
 var _createClass3 = _interopRequireDefault(_createClass2);
 
-var _events = __webpack_require__(40);
-
-var _events2 = _interopRequireDefault(_events);
-
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 var Channel = function () {
@@ -2267,50 +2266,14 @@ var Channel = function () {
     }
 
     (0, _createClass3.default)(Channel, [{
-        key: 'getName',
+        key: "getName",
         value: function getName() {
             return this.name;
         }
     }, {
-        key: 'getPosterSettings',
-        value: function getPosterSettings() {
-            return this.settings.poster;
-        }
-    }, {
-        key: 'getContentSettings',
-        value: function getContentSettings() {
-            return this.settings.gallery;
-        }
-
-        //------------Groups-----------//
-
-    }, {
-        key: 'shouldShowGroups',
-        value: function shouldShowGroups() {
-            return this.settings.gallery.visibility;
-        }
-    }, {
-        key: 'getTags',
-        value: function getTags() {
-            return this.settings.gallery.group.tags;
-        }
-    }, {
-        key: 'getGroupBackgroundColor',
-        value: function getGroupBackgroundColor() {
-            return this.settings.gallery.group.backgroundColor;
-        }
-    }, {
-        key: 'getGroupTextColor',
-        value: function getGroupTextColor() {
-            return this.settings.gallery.group.textColor;
-        }
-    }, {
-        key: 'setSelectedGroup',
-        value: function setSelectedGroup(group) {
-            if (group && this.selectedGroup !== group) {
-                this.selectedGroup = group;
-                window.dispatchEvent(new CustomEvent(_events2.default));
-            }
+        key: "getSettings",
+        value: function getSettings() {
+            return this.settings;
         }
     }]);
     return Channel;
