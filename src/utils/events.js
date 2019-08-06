@@ -1,4 +1,5 @@
 module.exports = {
-    "READY"         : "vfchannel-ready",
-    "UPDATE"        : "vfchannel-update"
+    "READY"             : "vfchannel-ready",
+    "UPDATE"            : "vfchannel-update",
+    "GROUP_SELECTED"    : "vfchannel-group-selected"
 };

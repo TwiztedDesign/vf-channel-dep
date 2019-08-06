@@ -1,34 +1,43 @@
-class Channel{
-    constructor(channel){
+import GROUP_SELECTED from '../../utils/events';
+
+
+class Channel {
+    constructor(channel) {
         this.channel = channel;
         //Set first selected group
     }
 
-    getName(){
+    getName() {
         return this.channel.name;
     }
 
-    getPosterSettings(){
+    getPosterSettings() {
         return this.channel.settings.poster;
     }
 
-    getContentSettings(){
+    getContentSettings() {
         return this.channel.settings.gallery;
     }
 
 
     //------------Groups-----------//
-    getTags(){
+    shouldShowGroups() {
+        return this.channel.settings.gallery.visibility;
+    }
+    getTags() {
         return this.channel.settings.gallery.group.tags;
     }
-    getGroupBackgroundColor(){
-        return this.settings.gallery.group.backgroundColor;
+    getGroupBackgroundColor() {
+        return this.channel.settings.gallery.group.backgroundColor;
     }
-    getGroupTextColor(){
-        return this.settings.gallery.group.textColor;
+    getGroupTextColor() {
+        return this.channel.settings.gallery.group.textColor;
     }
-    setSelectedGroup(group){
-        this.selectedGroup = group;
+    setSelectedGroup(group) {
+        if (group && this.selectedGroup !== group) {
+            this.selectedGroup = group;
+            window.dispatchEvent(new CustomEvent(GROUP_SELECTED));
+        }
     }
 
 }

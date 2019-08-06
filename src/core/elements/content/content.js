@@ -3,7 +3,7 @@ import VFChannelHTMLElmenet from "../vfChannelHTMLElement";
 export default class Content extends VFChannelHTMLElmenet {
     constructor(...args) {
         super(...args);
-        this.poster = window.vfchannel.content.getPoster();
+        this.content = window.vfchannel.content.getItems().items[0];
     }
 
     connectedCallback() {
@@ -17,41 +17,25 @@ export default class Content extends VFChannelHTMLElmenet {
     }
 
     _buildHTML() {
-        if (!this.poster.shouldShowPoster()) {
-            return '';
-        }
         return (
-            `<a href=${this.poster.getUrl()} target="_top" class="ch-poster" style="${this._buildThumb()}">
-                <div class="ch-poster-overlay" ng-if="getName(posterItem) && settings.poster.titleVisibility">
-                    ${this._buildTitle()}
-                </div>
-                <div class="ch-poster-play-button"></div>
+            `<a class="ch-gallery-item" ng-repeat="item in items track by item.url| filter:galleryGroupFilter" href="${this.content.getUrl()}" target="_top" style="color:${this.content.getTextColor()}">
+                ${this._buildThumb()}
+                ${this._buildName()}
             </a>`
         );
     }
 
     _buildThumb() {
-        return `color:${this.poster.getTextColor()}; background-image:url(${this.poster.getThumbnail()})`;
+        return `<div class="ch-item-thumbnail" color:${this.content.getTextColor()}; background-image:url(${this.content.getThumbnail()})"/>`;
     }
 
-    _buildTitle() {
-        if (!this.poster.shouldShowTitle()) {
+    _buildName() {
+        if (!this.content.shouldShowTitle()) {
             return '';
         } else {
             return (` 
-            <div class="ch-poster-overlay">
-                <h1 class="ch-poster-title">${this.poster.getName()}</h1>
-                ${this._buildDesciption()}
-            </div>`
+            <h3 class="ch-item-name">${this.content.getName()}</h3>`
             );
-        }
-    }
-
-    _buildDesciption() {
-        if (!this.poster.shouldShowDesciption()) {
-            return '';
-        } else {
-            return `<h2 class="ch-poster-desc">${this.poster.getDesciption()}</h2>`;
         }
     }
 }

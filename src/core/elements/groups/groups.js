@@ -17,7 +17,7 @@ export default class Groups extends VFChannelHTMLElmenet {
     }
 
     _buildHTML() {
-        if (!this.poster.shouldShowGroups()) {
+        if (!this.channel.shouldShowGroups()) {
             return '';
         }
         return (
@@ -28,6 +28,6 @@ export default class Groups extends VFChannelHTMLElmenet {
     }
 
     _buildGroup(group) {
-        return `<a class="ch-gallery-group" onclick="console.log('ziv')" style="color:${this.channel.getGroupTextColor()}">${group}</a>`
+        return `<a class="ch-gallery-group" onclick="console.log('ziv')" style="color:${this.channel.getGroupTextColor()}">${group}</a>`;
     }
 }

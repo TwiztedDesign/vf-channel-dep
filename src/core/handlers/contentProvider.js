@@ -4,7 +4,7 @@ import {READY,UPDATE} from '../../utils/events.js';
 import VFChannelContent from '../models/vfChannelContent';
 
 function getContent(settings, cb){
-    settings = settings || window.vfccnf;
+    settings = settings || window.vfchannel.vfccnf;
     get(`${env[settings.env]}channel/${settings.channel_client}/json`,(res)=>{
         let isFirstInitialization = !window.vfchannel.content;
         window.vfchannel.content = new VFChannelContent(res);
