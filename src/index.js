@@ -10,9 +10,9 @@ window.addEventListener(READY,()=>{
     initVFChannelElements();
 });
 
-let vfchannel = {};
-vfchannel.isMobile            = isMobile;
-vfchannel.getContent          = (settings, cb) => {return getContent(settings, cb);};
+let vfChannel = {};
+vfChannel.isMobile            = isMobile;
+vfChannel.getContent          = (settings, cb) => {return getContent(settings, cb);};
 
 
-module.exports = vfchannel;
+module.exports = vfChannel;

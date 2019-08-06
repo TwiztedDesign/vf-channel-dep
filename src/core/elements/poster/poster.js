@@ -3,7 +3,7 @@ import VFChannelHTMLElmenet from "../vfChannelHTMLElement";
 export default class Poster extends VFChannelHTMLElmenet {
     constructor(...args) {
         super(...args);
-        this.poster = window.vfchannel.content.getPoster();
+        this.poster = window.vfChannel.content.getPoster();
     }
 
     connectedCallback() {

@@ -1416,13 +1416,13 @@ window.addEventListener(_events.READY, function () {
     (0, _vfChannelInitializer.initVFChannelElements)();
 });
 
-var vfchannel = {};
-vfchannel.isMobile = _helpers.isMobile;
-vfchannel.getContent = function (settings, cb) {
+var vfChannel = {};
+vfChannel.isMobile = _helpers.isMobile;
+vfChannel.getContent = function (settings, cb) {
     return (0, _contentProvider.getContent)(settings, cb);
 };
 
-module.exports = vfchannel;
+module.exports = vfChannel;
 
 /***/ }),
 /* 48 */
@@ -2203,10 +2203,10 @@ var _vfChannelContent2 = _interopRequireDefault(_vfChannelContent);
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function getContent(settings, cb) {
-    settings = settings || window.vfchannel.vfccnf;
+    settings = settings || window.vfChannel.vfccnf;
     (0, _http.get)(_config.env[settings.env] + 'channel/' + settings.channel_client + '/json', function (res) {
-        var isFirstInitialization = !window.vfchannel.content;
-        window.vfchannel.content = new _vfChannelContent2.default(res);
+        var isFirstInitialization = !window.vfChannel.content;
+        window.vfChannel.content = new _vfChannelContent2.default(res);
         if (isFirstInitialization) {
             window.dispatchEvent(new CustomEvent(_events.READY));
         } else {
@@ -2731,7 +2731,7 @@ var Poster = function (_VFChannelHTMLElmenet) {
 
         var _this = (0, _possibleConstructorReturn3.default)(this, (_ref = Poster.__proto__ || Object.getPrototypeOf(Poster)).call.apply(_ref, [this].concat(args)));
 
-        _this.poster = window.vfchannel.content.getPoster();
+        _this.poster = window.vfChannel.content.getPoster();
         return _this;
     }
 
@@ -2997,7 +2997,7 @@ var Groups = function (_VFChannelHTMLElmenet) {
 
         var _this = (0, _possibleConstructorReturn3.default)(this, (_ref = Groups.__proto__ || Object.getPrototypeOf(Groups)).call.apply(_ref, [this].concat(args)));
 
-        _this.channel = window.vfchannel.content.getChannel();
+        _this.channel = window.vfChannel.content.getChannel();
         _this.groups = _this.channel.getTags();
         return _this;
     }
@@ -3083,7 +3083,7 @@ var Content = function (_VFChannelHTMLElmenet) {
 
         var _this = (0, _possibleConstructorReturn3.default)(this, (_ref = Content.__proto__ || Object.getPrototypeOf(Content)).call.apply(_ref, [this].concat(args)));
 
-        _this.content = window.vfchannel.content.getItems().items[0];
+        _this.content = window.vfChannel.content.getItems().items[0];
         return _this;
     }
 

@@ -1,4 +1,4 @@
 window.addEventListener('vfchannel-ready', function (e) { 
-    console.log(window.vfchannel.content);
-    window.vfchannel.getContent();
+    console.log(window.vfChannel.content);
+    window.vfChannel.getContent();
 }, false);

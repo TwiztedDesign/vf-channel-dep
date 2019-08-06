@@ -3,7 +3,7 @@ import VFChannelHTMLElmenet from "../vfChannelHTMLElement";
 export default class Items extends VFChannelHTMLElmenet {
     constructor(...args) {
         super(...args);
-        this.items = window.vfchannel.content.getItems();
+        this.items = window.vfChannel.content.getItems();
     }
 
     connectedCallback() {

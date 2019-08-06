@@ -4,10 +4,10 @@ import {READY,UPDATE} from '../../utils/events.js';
 import VFChannelContent from '../models/vfChannelContent';
 
 function getContent(settings, cb){
-    settings = settings || window.vfchannel.vfccnf;
+    settings = settings || window.vfChannel.vfccnf;
     get(`${env[settings.env]}channel/${settings.channel_client}/json`,(res)=>{
-        let isFirstInitialization = !window.vfchannel.content;
-        window.vfchannel.content = new VFChannelContent(res);
+        let isFirstInitialization = !window.vfChannel.content;
+        window.vfChannel.content = new VFChannelContent(res);
         if(isFirstInitialization){
             window.dispatchEvent(new CustomEvent(READY));
         }else{

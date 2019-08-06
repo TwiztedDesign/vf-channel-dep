@@ -3,7 +3,7 @@ import VFChannelHTMLElmenet from "../vfChannelHTMLElement";
 export default class Groups extends VFChannelHTMLElmenet {
     constructor(...args) {
         super(...args);
-        this.channel = window.vfchannel.content.getChannel();
+        this.channel = window.vfChannel.content.getChannel();
         this.groups = this.channel.getTags();
     }
 
