@@ -2,11 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Basic VFC Test</title>
-
-    <link rel="stylesheet" href="style.css">
-
-
+    <title>Basic VF Channel Example</title>
     <!-- -------- -->
     <script src="../../dist/vfchannel.js"></script>
     <script>
@@ -22,6 +18,30 @@
 
 </head>
 <body>
-    <div>Demo</div>
+    <h1>Demo</h1>
+    <pre id="content">Loading</pre>
+
+    <script>
+            window.vfChannel.on(window.vfChannel.events.READY, e => {
+            let data = e.detail;
+
+            document.getElementById('content').innerHTML = JSON.stringify(data, undefined, 2);
+
+            console.log(data.getContent());
+            console.log(data.getChannel());
+            console.log(data.getPoster());
+            console.log(data.getSettings());
+
+            console.log('==============================');
+
+            console.log(window.vfChannel.getContent());
+            console.log(window.vfChannel.getChannel());
+            console.log(window.vfChannel.getPoster());
+            console.log(window.vfChannel.getSettings());
+
+            //Load content again
+            window.vfChannel.loadContent();
+        });
+    </script>
 </body>
 </html>
