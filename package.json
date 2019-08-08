@@ -35,7 +35,6 @@
   },
   "homepage": "https://github.com/TwiztedDesign/vff#readme",
   "devDependencies": {
-    "babel-cli": "6.26.0",
     "babel-core": "6.26.0",
     "babel-jest": "^24.8.0",
     "babel-loader": "7.1.2",

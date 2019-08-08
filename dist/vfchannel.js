@@ -70,138 +70,11 @@ return /******/ (function(modules) { // webpackBootstrap
 /******/ 	__webpack_require__.p = "";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 41);
+/******/ 	return __webpack_require__(__webpack_require__.s = 10);
 /******/ })
 /************************************************************************/
 /******/ ([
 /* 0 */
-/***/ (function(module, exports) {
-
-// https://github.com/zloirock/core-js/issues/86#issuecomment-115759028
-var global = module.exports = typeof window != 'undefined' && window.Math == Math
-  ? window : typeof self != 'undefined' && self.Math == Math ? self
-  // eslint-disable-next-line no-new-func
-  : Function('return this')();
-if (typeof __g == 'number') __g = global; // eslint-disable-line no-undef
-
-
-/***/ }),
-/* 1 */
-/***/ (function(module, exports, __webpack_require__) {
-
-var anObject = __webpack_require__(10);
-var IE8_DOM_DEFINE = __webpack_require__(31);
-var toPrimitive = __webpack_require__(20);
-var dP = Object.defineProperty;
-
-exports.f = __webpack_require__(2) ? Object.defineProperty : function defineProperty(O, P, Attributes) {
-  anObject(O);
-  P = toPrimitive(P, true);
-  anObject(Attributes);
-  if (IE8_DOM_DEFINE) try {
-    return dP(O, P, Attributes);
-  } catch (e) { /* empty */ }
-  if ('get' in Attributes || 'set' in Attributes) throw TypeError('Accessors not supported!');
-  if ('value' in Attributes) O[P] = Attributes.value;
-  return O;
-};
-
-
-/***/ }),
-/* 2 */
-/***/ (function(module, exports, __webpack_require__) {
-
-// Thank's IE8 for his funny defineProperty
-module.exports = !__webpack_require__(11)(function () {
-  return Object.defineProperty({}, 'a', { get: function () { return 7; } }).a != 7;
-});
-
-
-/***/ }),
-/* 3 */
-/***/ (function(module, exports) {
-
-var hasOwnProperty = {}.hasOwnProperty;
-module.exports = function (it, key) {
-  return hasOwnProperty.call(it, key);
-};
-
-
-/***/ }),
-/* 4 */
-/***/ (function(module, exports, __webpack_require__) {
-
-var dP = __webpack_require__(1);
-var createDesc = __webpack_require__(12);
-module.exports = __webpack_require__(2) ? function (object, key, value) {
-  return dP.f(object, key, createDesc(1, value));
-} : function (object, key, value) {
-  object[key] = value;
-  return object;
-};
-
-
-/***/ }),
-/* 5 */,
-/* 6 */,
-/* 7 */
-/***/ (function(module, exports) {
-
-var core = module.exports = { version: '2.6.9' };
-if (typeof __e == 'number') __e = core; // eslint-disable-line no-undef
-
-
-/***/ }),
-/* 8 */
-/***/ (function(module, exports) {
-
-module.exports = function (it) {
-  return typeof it === 'object' ? it !== null : typeof it === 'function';
-};
-
-
-/***/ }),
-/* 9 */,
-/* 10 */
-/***/ (function(module, exports, __webpack_require__) {
-
-var isObject = __webpack_require__(8);
-module.exports = function (it) {
-  if (!isObject(it)) throw TypeError(it + ' is not an object!');
-  return it;
-};
-
-
-/***/ }),
-/* 11 */
-/***/ (function(module, exports) {
-
-module.exports = function (exec) {
-  try {
-    return !!exec();
-  } catch (e) {
-    return true;
-  }
-};
-
-
-/***/ }),
-/* 12 */
-/***/ (function(module, exports) {
-
-module.exports = function (bitmap, value) {
-  return {
-    enumerable: !(bitmap & 1),
-    configurable: !(bitmap & 2),
-    writable: !(bitmap & 4),
-    value: value
-  };
-};
-
-
-/***/ }),
-/* 13 */,
-/* 14 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -216,7 +89,7 @@ exports.default = function (instance, Constructor) {
 };
 
 /***/ }),
-/* 15 */
+/* 1 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -224,7 +97,7 @@ exports.default = function (instance, Constructor) {
 
 exports.__esModule = true;
 
-var _defineProperty = __webpack_require__(76);
+var _defineProperty = __webpack_require__(15);
 
 var _defineProperty2 = _interopRequireDefault(_defineProperty);
 
@@ -249,7 +122,17 @@ exports.default = function () {
 }();
 
 /***/ }),
-/* 16 */
+/* 2 */
+/***/ (function(module, exports, __webpack_require__) {
+
+// Thank's IE8 for his funny defineProperty
+module.exports = !__webpack_require__(9)(function () {
+  return Object.defineProperty({}, 'a', { get: function () { return 7; } }).a != 7;
+});
+
+
+/***/ }),
+/* 3 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -289,16 +172,321 @@ module.exports = {
 };
 
 /***/ }),
-/* 17 */,
-/* 18 */,
-/* 19 */
+/* 4 */
+/***/ (function(module, exports) {
+
+module.exports = function (it) {
+  return typeof it === 'object' ? it !== null : typeof it === 'function';
+};
+
+
+/***/ }),
+/* 5 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var global = __webpack_require__(0);
+"use strict";
+
+
+module.exports = {
+    "READY": "vfchannel-ready",
+    "UPDATE": "vfchannel-update"
+};
+
+/***/ }),
+/* 6 */
+/***/ (function(module, exports) {
+
+// https://github.com/zloirock/core-js/issues/86#issuecomment-115759028
+var global = module.exports = typeof window != 'undefined' && window.Math == Math
+  ? window : typeof self != 'undefined' && self.Math == Math ? self
+  // eslint-disable-next-line no-new-func
+  : Function('return this')();
+if (typeof __g == 'number') __g = global; // eslint-disable-line no-undef
+
+
+/***/ }),
+/* 7 */
+/***/ (function(module, exports) {
+
+var core = module.exports = { version: '2.6.9' };
+if (typeof __e == 'number') __e = core; // eslint-disable-line no-undef
+
+
+/***/ }),
+/* 8 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var anObject = __webpack_require__(22);
+var IE8_DOM_DEFINE = __webpack_require__(23);
+var toPrimitive = __webpack_require__(25);
+var dP = Object.defineProperty;
+
+exports.f = __webpack_require__(2) ? Object.defineProperty : function defineProperty(O, P, Attributes) {
+  anObject(O);
+  P = toPrimitive(P, true);
+  anObject(Attributes);
+  if (IE8_DOM_DEFINE) try {
+    return dP(O, P, Attributes);
+  } catch (e) { /* empty */ }
+  if ('get' in Attributes || 'set' in Attributes) throw TypeError('Accessors not supported!');
+  if ('value' in Attributes) O[P] = Attributes.value;
+  return O;
+};
+
+
+/***/ }),
+/* 9 */
+/***/ (function(module, exports) {
+
+module.exports = function (exec) {
+  try {
+    return !!exec();
+  } catch (e) {
+    return true;
+  }
+};
+
+
+/***/ }),
+/* 10 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+var _helpers = __webpack_require__(3);
+
+var _contentProvider = __webpack_require__(11);
+
+var _events = __webpack_require__(5);
+
+var _events2 = _interopRequireDefault(_events);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+var vfChannel = {};
+vfChannel.isMobile = _helpers.isMobile;
+vfChannel.events = _events2.default;
+
+vfChannel.loadContent = function (settings, cb) {
+  return (0, _contentProvider.loadContent)(settings, cb);
+};
+vfChannel.getContent = function () {
+  return window.vfChannel.content.getContent();
+};
+vfChannel.getPoster = function () {
+  return window.vfChannel.content.getPoster();
+};
+vfChannel.getChannel = function () {
+  return window.vfChannel.content.getChannel();
+};
+vfChannel.getSettings = function () {
+  return window.vfChannel.content.getChannel().getSettings();
+};
+vfChannel.on = function (type, cb) {
+  return document.addEventListener(type, cb);
+};
+vfChannel.removeEventListener = function (type, cb) {
+  return document.removeEventListener(type, cb);
+};
+
+module.exports = vfChannel;
+
+/***/ }),
+/* 11 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+var _http = __webpack_require__(12);
+
+var _config = __webpack_require__(13);
+
+var _events = __webpack_require__(5);
+
+var _vfChannelContent = __webpack_require__(14);
+
+var _vfChannelContent2 = _interopRequireDefault(_vfChannelContent);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function loadContent(settings, cb) {
+    settings = settings || window.vfChannel.vfccnf;
+    (0, _http.get)(_config.env[settings.env] + 'channel/' + settings.channel_client + '/json', function (res) {
+        var isFirstInitialization = !window.vfChannel.content;
+        window.vfChannel.content = new _vfChannelContent2.default(res);
+        if (isFirstInitialization) {
+            document.dispatchEvent(new CustomEvent(_events.READY, { detail: window.vfChannel.content }));
+        } else {
+            document.dispatchEvent(new CustomEvent(_events.UPDATE, { detail: window.vfChannel.content }));
+        }
+        if (cb) cb(res);
+    });
+}
+
+module.exports = {
+    loadContent: loadContent
+};
+
+/***/ }),
+/* 12 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+var _helpers = __webpack_require__(3);
+
+function get(url, callback) {
+    var deferred = (0, _helpers.defer)();
+    var xmlHttp = new XMLHttpRequest();
+    xmlHttp.onreadystatechange = function () {
+        //TODO handle reject on callback
+        if (xmlHttp.readyState == 4) {
+            if (xmlHttp.status == 200) {
+                if (callback) {
+                    callback(xmlHttp.responseText);
+                }
+                deferred.resolve(xmlHttp.responseText);
+            } else {
+                deferred.reject(xmlHttp.status);
+            }
+        }
+    };
+    xmlHttp.open("GET", url, true); // true for asynchronous
+    xmlHttp.send(null);
+    return deferred.promise;
+}
+
+module.exports = {
+    get: get
+
+};
+
+/***/ }),
+/* 13 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+module.exports = {
+    env: {
+        'p': 'https://videoflow.io/',
+        's': 'https://staging.videoflow.io/',
+        'd': 'http://localhost:3002/'
+    }
+};
+
+/***/ }),
+/* 14 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+
+var _classCallCheck2 = __webpack_require__(0);
+
+var _classCallCheck3 = _interopRequireDefault(_classCallCheck2);
+
+var _createClass2 = __webpack_require__(1);
+
+var _createClass3 = _interopRequireDefault(_createClass2);
+
+var _poster = __webpack_require__(28);
+
+var _poster2 = _interopRequireDefault(_poster);
+
+var _content = __webpack_require__(29);
+
+var _content2 = _interopRequireDefault(_content);
+
+var _channel = __webpack_require__(30);
+
+var _channel2 = _interopRequireDefault(_channel);
+
+var _helpers = __webpack_require__(3);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+var VFChannelContent = function () {
+    function VFChannelContent(data) {
+        (0, _classCallCheck3.default)(this, VFChannelContent);
+
+        data = (0, _helpers.isObject)(data) ? data : JSON.parse(data);
+        this.channel = new _channel2.default(data.channel);
+        this.items = data.content.map(function (content) {
+            return new _content2.default(content);
+        });
+        this.poster = new _poster2.default(data.poster);
+    }
+
+    (0, _createClass3.default)(VFChannelContent, [{
+        key: 'getPoster',
+        value: function getPoster() {
+            return this.poster;
+        }
+    }, {
+        key: 'getContent',
+        value: function getContent() {
+            return this.items;
+        }
+    }, {
+        key: 'getChannel',
+        value: function getChannel() {
+            return this.channel;
+        }
+    }, {
+        key: 'getSettings',
+        value: function getSettings() {
+            return this.channel.getSettings();
+        }
+    }]);
+    return VFChannelContent;
+}();
+
+exports.default = VFChannelContent;
+
+/***/ }),
+/* 15 */
+/***/ (function(module, exports, __webpack_require__) {
+
+module.exports = { "default": __webpack_require__(16), __esModule: true };
+
+/***/ }),
+/* 16 */
+/***/ (function(module, exports, __webpack_require__) {
+
+__webpack_require__(17);
+var $Object = __webpack_require__(7).Object;
+module.exports = function defineProperty(it, key, desc) {
+  return $Object.defineProperty(it, key, desc);
+};
+
+
+/***/ }),
+/* 17 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var $export = __webpack_require__(18);
+// 19.1.2.4 / 15.2.3.6 Object.defineProperty(O, P, Attributes)
+$export($export.S + $export.F * !__webpack_require__(2), 'Object', { defineProperty: __webpack_require__(8).f });
+
+
+/***/ }),
+/* 18 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var global = __webpack_require__(6);
 var core = __webpack_require__(7);
-var ctx = __webpack_require__(47);
-var hide = __webpack_require__(4);
-var has = __webpack_require__(3);
+var ctx = __webpack_require__(19);
+var hide = __webpack_require__(21);
+var has = __webpack_require__(27);
 var PROTOTYPE = 'prototype';
 
 var $export = function (type, name, source) {
@@ -359,130 +547,11 @@ module.exports = $export;
 
 
 /***/ }),
-/* 20 */
-/***/ (function(module, exports, __webpack_require__) {
-
-// 7.1.1 ToPrimitive(input [, PreferredType])
-var isObject = __webpack_require__(8);
-// instead of the ES6 spec version, we didn't implement @@toPrimitive case
-// and the second argument - flag - preferred type is a string
-module.exports = function (it, S) {
-  if (!isObject(it)) return it;
-  var fn, val;
-  if (S && typeof (fn = it.toString) == 'function' && !isObject(val = fn.call(it))) return val;
-  if (typeof (fn = it.valueOf) == 'function' && !isObject(val = fn.call(it))) return val;
-  if (!S && typeof (fn = it.toString) == 'function' && !isObject(val = fn.call(it))) return val;
-  throw TypeError("Can't convert object to primitive value");
-};
-
-
-/***/ }),
-/* 21 */,
-/* 22 */,
-/* 23 */,
-/* 24 */,
-/* 25 */,
-/* 26 */,
-/* 27 */,
-/* 28 */,
-/* 29 */,
-/* 30 */,
-/* 31 */
-/***/ (function(module, exports, __webpack_require__) {
-
-module.exports = !__webpack_require__(2) && !__webpack_require__(11)(function () {
-  return Object.defineProperty(__webpack_require__(32)('div'), 'a', { get: function () { return 7; } }).a != 7;
-});
-
-
-/***/ }),
-/* 32 */
-/***/ (function(module, exports, __webpack_require__) {
-
-var isObject = __webpack_require__(8);
-var document = __webpack_require__(0).document;
-// typeof document.createElement is 'object' in old IE
-var is = isObject(document) && isObject(document.createElement);
-module.exports = function (it) {
-  return is ? document.createElement(it) : {};
-};
-
-
-/***/ }),
-/* 33 */,
-/* 34 */,
-/* 35 */,
-/* 36 */,
-/* 37 */,
-/* 38 */,
-/* 39 */,
-/* 40 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-module.exports = {
-    "READY": "vfchannel-ready",
-    "UPDATE": "vfchannel-update"
-};
-
-/***/ }),
-/* 41 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-var _helpers = __webpack_require__(16);
-
-var _contentProvider = __webpack_require__(72);
-
-var _events = __webpack_require__(40);
-
-var _events2 = _interopRequireDefault(_events);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-var vfChannel = {};
-vfChannel.isMobile = _helpers.isMobile;
-vfChannel.events = _events2.default;
-
-vfChannel.loadContent = function (settings, cb) {
-  return (0, _contentProvider.loadContent)(settings, cb);
-};
-vfChannel.getContent = function () {
-  return window.vfChannel.content.getContent();
-};
-vfChannel.getPoster = function () {
-  return window.vfChannel.content.getPoster();
-};
-vfChannel.getChannel = function () {
-  return window.vfChannel.content.getChannel();
-};
-vfChannel.getSettings = function () {
-  return window.vfChannel.content.getChannel().getSettings();
-};
-vfChannel.on = function (type, cb) {
-  return document.addEventListener(type, cb);
-};
-vfChannel.removeEventListener = function (type, cb) {
-  return document.removeEventListener(type, cb);
-};
-
-module.exports = vfChannel;
-
-/***/ }),
-/* 42 */,
-/* 43 */,
-/* 44 */,
-/* 45 */,
-/* 46 */,
-/* 47 */
+/* 19 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // optional / simple context binding
-var aFunction = __webpack_require__(48);
+var aFunction = __webpack_require__(20);
 module.exports = function (fn, that, length) {
   aFunction(fn);
   if (that === undefined) return fn;
@@ -504,7 +573,7 @@ module.exports = function (fn, that, length) {
 
 
 /***/ }),
-/* 48 */
+/* 20 */
 /***/ (function(module, exports) {
 
 module.exports = function (it) {
@@ -514,117 +583,96 @@ module.exports = function (it) {
 
 
 /***/ }),
-/* 49 */,
-/* 50 */,
-/* 51 */,
-/* 52 */,
-/* 53 */,
-/* 54 */,
-/* 55 */,
-/* 56 */,
-/* 57 */,
-/* 58 */,
-/* 59 */,
-/* 60 */,
-/* 61 */,
-/* 62 */,
-/* 63 */,
-/* 64 */,
-/* 65 */,
-/* 66 */,
-/* 67 */,
-/* 68 */,
-/* 69 */,
-/* 70 */,
-/* 71 */,
-/* 72 */
+/* 21 */
 /***/ (function(module, exports, __webpack_require__) {
 
-"use strict";
-
-
-var _http = __webpack_require__(73);
-
-var _config = __webpack_require__(74);
-
-var _events = __webpack_require__(40);
-
-var _vfChannelContent = __webpack_require__(75);
-
-var _vfChannelContent2 = _interopRequireDefault(_vfChannelContent);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-function loadContent(settings, cb) {
-    settings = settings || window.vfChannel.vfccnf;
-    (0, _http.get)(_config.env[settings.env] + 'channel/' + settings.channel_client + '/json', function (res) {
-        var isFirstInitialization = !window.vfChannel.content;
-        window.vfChannel.content = new _vfChannelContent2.default(res);
-        if (isFirstInitialization) {
-            document.dispatchEvent(new CustomEvent(_events.READY, { detail: window.vfChannel.content }));
-        } else {
-            document.dispatchEvent(new CustomEvent(_events.UPDATE, { detail: window.vfChannel.content }));
-        }
-        if (cb) cb(res);
-    });
-}
-
-module.exports = {
-    loadContent: loadContent
+var dP = __webpack_require__(8);
+var createDesc = __webpack_require__(26);
+module.exports = __webpack_require__(2) ? function (object, key, value) {
+  return dP.f(object, key, createDesc(1, value));
+} : function (object, key, value) {
+  object[key] = value;
+  return object;
 };
 
+
 /***/ }),
-/* 73 */
+/* 22 */
 /***/ (function(module, exports, __webpack_require__) {
 
-"use strict";
-
-
-var _helpers = __webpack_require__(16);
-
-function get(url, callback) {
-    var deferred = (0, _helpers.defer)();
-    var xmlHttp = new XMLHttpRequest();
-    xmlHttp.onreadystatechange = function () {
-        //TODO handle reject on callback
-        if (xmlHttp.readyState == 4) {
-            if (xmlHttp.status == 200) {
-                if (callback) {
-                    callback(xmlHttp.responseText);
-                }
-                deferred.resolve(xmlHttp.responseText);
-            } else {
-                deferred.reject(xmlHttp.status);
-            }
-        }
-    };
-    xmlHttp.open("GET", url, true); // true for asynchronous
-    xmlHttp.send(null);
-    return deferred.promise;
-}
-
-module.exports = {
-    get: get
-
+var isObject = __webpack_require__(4);
+module.exports = function (it) {
+  if (!isObject(it)) throw TypeError(it + ' is not an object!');
+  return it;
 };
 
+
 /***/ }),
-/* 74 */
+/* 23 */
 /***/ (function(module, exports, __webpack_require__) {
 
-"use strict";
+module.exports = !__webpack_require__(2) && !__webpack_require__(9)(function () {
+  return Object.defineProperty(__webpack_require__(24)('div'), 'a', { get: function () { return 7; } }).a != 7;
+});
 
-
-module.exports = {
-    env: {
-        'p': 'https://videoflow.io/',
-        's': 'https://staging.videoflow.io/',
-        'd': 'http://localhost:3002/'
-    }
-};
 
 /***/ }),
-/* 75 */
+/* 24 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var isObject = __webpack_require__(4);
+var document = __webpack_require__(6).document;
+// typeof document.createElement is 'object' in old IE
+var is = isObject(document) && isObject(document.createElement);
+module.exports = function (it) {
+  return is ? document.createElement(it) : {};
+};
+
+
+/***/ }),
+/* 25 */
+/***/ (function(module, exports, __webpack_require__) {
+
+// 7.1.1 ToPrimitive(input [, PreferredType])
+var isObject = __webpack_require__(4);
+// instead of the ES6 spec version, we didn't implement @@toPrimitive case
+// and the second argument - flag - preferred type is a string
+module.exports = function (it, S) {
+  if (!isObject(it)) return it;
+  var fn, val;
+  if (S && typeof (fn = it.toString) == 'function' && !isObject(val = fn.call(it))) return val;
+  if (typeof (fn = it.valueOf) == 'function' && !isObject(val = fn.call(it))) return val;
+  if (!S && typeof (fn = it.toString) == 'function' && !isObject(val = fn.call(it))) return val;
+  throw TypeError("Can't convert object to primitive value");
+};
+
+
+/***/ }),
+/* 26 */
+/***/ (function(module, exports) {
+
+module.exports = function (bitmap, value) {
+  return {
+    enumerable: !(bitmap & 1),
+    configurable: !(bitmap & 2),
+    writable: !(bitmap & 4),
+    value: value
+  };
+};
+
+
+/***/ }),
+/* 27 */
+/***/ (function(module, exports) {
+
+var hasOwnProperty = {}.hasOwnProperty;
+module.exports = function (it, key) {
+  return hasOwnProperty.call(it, key);
+};
+
+
+/***/ }),
+/* 28 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -634,110 +682,11 @@ Object.defineProperty(exports, "__esModule", {
     value: true
 });
 
-var _classCallCheck2 = __webpack_require__(14);
+var _classCallCheck2 = __webpack_require__(0);
 
 var _classCallCheck3 = _interopRequireDefault(_classCallCheck2);
 
-var _createClass2 = __webpack_require__(15);
-
-var _createClass3 = _interopRequireDefault(_createClass2);
-
-var _poster = __webpack_require__(79);
-
-var _poster2 = _interopRequireDefault(_poster);
-
-var _content = __webpack_require__(80);
-
-var _content2 = _interopRequireDefault(_content);
-
-var _channel = __webpack_require__(81);
-
-var _channel2 = _interopRequireDefault(_channel);
-
-var _helpers = __webpack_require__(16);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-var VFChannelContent = function () {
-    function VFChannelContent(data) {
-        (0, _classCallCheck3.default)(this, VFChannelContent);
-
-        data = (0, _helpers.isObject)(data) ? data : JSON.parse(data);
-        this.channel = new _channel2.default(data.channel);
-        this.items = data.content.map(function (content) {
-            return new _content2.default(content);
-        });
-        this.poster = new _poster2.default(data.poster);
-    }
-
-    (0, _createClass3.default)(VFChannelContent, [{
-        key: 'getPoster',
-        value: function getPoster() {
-            return this.poster;
-        }
-    }, {
-        key: 'getContent',
-        value: function getContent() {
-            return this.items;
-        }
-    }, {
-        key: 'getChannel',
-        value: function getChannel() {
-            return this.channel;
-        }
-    }, {
-        key: 'getSettings',
-        value: function getSettings() {
-            return this.channel.getSettings();
-        }
-    }]);
-    return VFChannelContent;
-}();
-
-exports.default = VFChannelContent;
-
-/***/ }),
-/* 76 */
-/***/ (function(module, exports, __webpack_require__) {
-
-module.exports = { "default": __webpack_require__(77), __esModule: true };
-
-/***/ }),
-/* 77 */
-/***/ (function(module, exports, __webpack_require__) {
-
-__webpack_require__(78);
-var $Object = __webpack_require__(7).Object;
-module.exports = function defineProperty(it, key, desc) {
-  return $Object.defineProperty(it, key, desc);
-};
-
-
-/***/ }),
-/* 78 */
-/***/ (function(module, exports, __webpack_require__) {
-
-var $export = __webpack_require__(19);
-// 19.1.2.4 / 15.2.3.6 Object.defineProperty(O, P, Attributes)
-$export($export.S + $export.F * !__webpack_require__(2), 'Object', { defineProperty: __webpack_require__(1).f });
-
-
-/***/ }),
-/* 79 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-    value: true
-});
-
-var _classCallCheck2 = __webpack_require__(14);
-
-var _classCallCheck3 = _interopRequireDefault(_classCallCheck2);
-
-var _createClass2 = __webpack_require__(15);
+var _createClass2 = __webpack_require__(1);
 
 var _createClass3 = _interopRequireDefault(_createClass2);
 
@@ -797,7 +746,7 @@ var Poster = function () {
 exports.default = Poster;
 
 /***/ }),
-/* 80 */
+/* 29 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -807,11 +756,11 @@ Object.defineProperty(exports, "__esModule", {
     value: true
 });
 
-var _classCallCheck2 = __webpack_require__(14);
+var _classCallCheck2 = __webpack_require__(0);
 
 var _classCallCheck3 = _interopRequireDefault(_classCallCheck2);
 
-var _createClass2 = __webpack_require__(15);
+var _createClass2 = __webpack_require__(1);
 
 var _createClass3 = _interopRequireDefault(_createClass2);
 
@@ -856,7 +805,7 @@ var Content = function () {
 exports.default = Content;
 
 /***/ }),
-/* 81 */
+/* 30 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -866,11 +815,11 @@ Object.defineProperty(exports, "__esModule", {
     value: true
 });
 
-var _classCallCheck2 = __webpack_require__(14);
+var _classCallCheck2 = __webpack_require__(0);
 
 var _classCallCheck3 = _interopRequireDefault(_classCallCheck2);
 
-var _createClass2 = __webpack_require__(15);
+var _createClass2 = __webpack_require__(1);
 
 var _createClass3 = _interopRequireDefault(_createClass2);
 
