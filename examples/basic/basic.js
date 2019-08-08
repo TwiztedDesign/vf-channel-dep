@@ -1,4 +1,13 @@
-window.addEventListener('vfchannel-ready', function (e) { 
+window.vfChannel.on(window.vfChannel.events.READY, e => {
+    let data = e.detail;
+
+    console.log(data.getContent());
+    console.log(data.getChannel());
+    console.log(data.getPoster());
+    console.log(data.getSettings());
+
+    console.log('==============================');
+
     console.log(window.vfChannel.getContent());
     console.log(window.vfChannel.getChannel());
     console.log(window.vfChannel.getPoster());
@@ -6,4 +15,6 @@ window.addEventListener('vfchannel-ready', function (e) {
 
     //Get content again
     window.vfChannel.loadContent();
-}, false);
+});
+
+

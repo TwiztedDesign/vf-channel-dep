@@ -17,12 +17,16 @@ class VFChannelContent{
         return this.poster;
     }
 
-    getItems(){
+    getContent(){
         return this.items;
     }
 
     getChannel(){
         return this.channel;
+    }
+    
+    getSettings(){
+        return this.channel.getSettings();
     }
 
 }
