@@ -1,7 +1,7 @@
 {
-  "name": "vff",
+  "name": "vf-channel",
   "version": "0.0.1",
-  "description": "VideoFlow channel Framework",
+  "description": "Videoflow channel Framework",
   "main": "dist/vfchannel.js",
   "scripts": {
     "test": "jest --watchAll",
